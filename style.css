@@ -1,0 +1,129 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #000;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+}
+
+.calculator{
+    width: 522px;
+    height: auto;
+    min-height: 100px;
+    margin: 100px auto;
+    background-color: #000;
+    border-radius: 5px;
+    position: relative;
+
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.calculator::after , .calculator::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),#ff4545, #00ff99, #006aff,#ff0095, #ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 5px;
+    animation: 3s spin linear infinite;
+}
+
+.calculator::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+.heading h2{
+    font-size: 26px;
+    text-align: center;
+    color: #0ef;
+    font-weight: normal;
+    margin: 5px 0px;
+    box-shadow: 0px 2px #b289223e;
+}
+
+.block{
+    display: inline-block;
+    width: 135px;
+    padding:5px 20px;
+    margin-left: 20px;
+
+}
+.caption{
+    font-size: 20px;
+    color: #0ef;
+    text-align: center;
+    font-weight: normal;
+    line-height: 0.5;
+    letter-spacing: 0.5px;
+    word-spacing: 2.7px;
+    margin: 17px;
+
+}
+
+input{
+    width: 130px;
+    margin: auto;
+    padding: 13px;
+    outline: none;
+    min-height: 45px;
+    border: 2px solid #333;
+    color: #fff;
+    background-color: #111;
+    border-radius: 5px;
+    font-size: 15px;
+
+}
+
+
+button{
+    width: 71px;
+    height: 34px;
+    background-color: #0ef;
+    color:#333 ;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    left: 42%;
+    margin-top: 27px;
+}
+
+button:hover{
+    color: #fff;
+    transition-property: box-shadow;
+    transition-duration: .3s;
+    box-shadow: inset 0 0 0.5rem #0ef, 0 0 0.5rem 0 #0ef;
+}
+
+#result{
+    padding: 20px;
+    overflow: hidden;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.5rem;
+    word-spacing: 2.5px;
+    color: #fff;
+     
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
